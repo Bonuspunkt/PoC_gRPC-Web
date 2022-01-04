@@ -6,6 +6,8 @@ using Grpc.Net.Client.Web;
 var version = RuntimeInformation.FrameworkDescription;
 
 var handler = new GrpcWebHandler(new HttpClientHandler());
+handler.HttpVersion = new Version(1, 1);
+
 var options = new GrpcChannelOptions {HttpHandler = handler};
 
 

@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net48;net6.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>10.0</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf" Version="3.19.1" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.41.0" />
+		<PackageReference Include="Grpc.Net.Client.Web" Version="2.41.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.42.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework) == 'net48'" >
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="..\Proto\greet.proto" GrpcServices="Client" Link="Proto\greet.proto" />
+	</ItemGroup>
+
+</Project>
